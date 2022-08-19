@@ -127,6 +127,9 @@ const SelectSeparator = styled.div`
 `;
 
 const SelectItemWrap = styled.div``;
+const SelectItemEmpty = styled.div`
+  color: ${colors.disabledText};
+`;
 
 class Filter {
   private resetInterval = 500;
@@ -411,7 +414,7 @@ export function Select<T extends string>({
               onKeyDown={onFilterKeyDown}
             />
             <SelectPopoverBody ref={bodyRef}>
-              {optionsWithSepsWithIndex.map(([i, option], key) => {
+              {optionsWithSepsWithIndex.length > 0 ? optionsWithSepsWithIndex.map(([i, option], key) => {
                 if ("type" in option) {
                   if (option.type === "separator") {
                     return <SelectSeparator key={key} />;
@@ -449,7 +452,18 @@ export function Select<T extends string>({
                     )}
                   </SelectItemWrap>
                 );
-              })}
+              }) : 
+                  <SelectItemEmpty
+                    key={"empty"}
+                    className={selectItemWrapClassName}
+                    data-index={0}
+                    onClick={() => {
+                      close();
+                    }}
+                  >
+                   No result found. 
+                  </SelectItemEmpty>
+                }
             </SelectPopoverBody>
           </SelectPopoverScroll>
         </RootPortal>
