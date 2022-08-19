@@ -127,6 +127,7 @@ const SelectSeparator = styled.div`
 `;
 
 const SelectItemWrap = styled.div`
+  cursor: pointer;
 `;
 
 class Filter {
