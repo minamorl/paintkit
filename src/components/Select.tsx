@@ -126,7 +126,8 @@ const SelectSeparator = styled.div`
   margin: 4px 0;
 `;
 
-const SelectItemWrap = styled.div``;
+const SelectItemWrap = styled.div`
+`;
 
 class Filter {
   private resetInterval = 500;
