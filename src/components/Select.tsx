@@ -126,8 +126,10 @@ const SelectSeparator = styled.div`
   margin: 4px 0;
 `;
 
-const SelectItemWrap = styled.div``;
-const SelectItemEmpty = styled.div`
+const SelectItemWrap = styled.div`
+  cursor: pointer;
+`;
+const SelectItemEmpty = styled(SelectItemWrap)`
   color: ${colors.disabledText};
 `;
 
